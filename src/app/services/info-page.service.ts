@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { InfoPage } from '../interfaces/info-page.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InfoPageService {
 
-  info: any = {};
+  info: InfoPage = {};
   loaded = false;
 
   constructor( private http: HttpClient ) {
@@ -15,7 +16,7 @@ export class InfoPageService {
 
     // read JSON file
     this.http.get('assets/data/data-page.json')
-      .subscribe( (resp: any) => {
+      .subscribe( (resp: InfoPage) => {
         this.loaded = true;
         this.info = resp;
         console.log('on data-page response: ', resp);
