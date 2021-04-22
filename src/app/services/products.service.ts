@@ -17,9 +17,13 @@ export class ProductsService {
   private loadProducts() {
     this.http.get('https://angular-html-54507-default-rtdb.firebaseio.com/products_idx.json')
       .subscribe((resp: any) => {
-        // console.log('products: ', resp);
         this.products = resp;
         this.loading = false;
       });
   }
+
+  getProduct( id: string) {
+    return this.http.get(`https://angular-html-54507-default-rtdb.firebaseio.com/products/${ id }.json`);
+  };
+
 }
