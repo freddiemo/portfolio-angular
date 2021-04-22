@@ -32,7 +32,6 @@ export class InfoPageService {
       .subscribe( (resp: any) => {
 
         this.team = resp;
-        console.log(resp);
 
       });
   }
